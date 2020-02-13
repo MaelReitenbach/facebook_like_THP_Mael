@@ -1,0 +1,26 @@
+<div class="starter-template">
+  <h1>Ajoute un potin !</h1>
+  <div style="margin-top: 15px;">
+    <p class="alert alert-primary">Balance ton potin via le formulaire ci-dessous</p>
+  </div>
+  <div class="form-group">
+    <form action='/gossips/' method='POST'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <label>Saisi ici le titre :</label>
+      <input type='text' class="form-control" name='gossip_title'/><br/>
+      <label>Balance ton potin :</label>
+      <textarea  type='text' class="form-control" name='gossip_content' rows="3"/></textarea>
+      <input type='submit' class="btn btn-primary" value="Ajouter ce potin" style="margin-top: 10px;"/>
+    </form>
+  </div>
+
+  <div class="d-flex justify-content-around">
+    <%= link_to "Revenir à l'accueil", index_path, class:'btn btn-secondary', style:'margin-top: 20px;' %>
+  </div>
+
+  <% if flash[:non] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:non] %>
+  </div>
+<% end %>
+</div>

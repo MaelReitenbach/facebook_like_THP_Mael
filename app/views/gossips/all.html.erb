@@ -1,0 +1,58 @@
+<div class="starter-template">
+  <h1>Bienvenue à notre super site de gossip ! <small class="text-muted"> A new THP project... </small></h1>
+  <% if flash[:success] %>
+   <div class="alert alert-success" role="alert">
+     <%= flash[:success] %>
+   </div>
+  <% end %>
+  <% if flash[:bene] %>
+   <div class="alert alert-success" role="alert">
+     <%= flash[:bene] %>
+   </div>
+  <% end %>
+  <% if flash[:conn] %>
+   <div class="alert alert-success" role="alert">
+     <%= flash[:conn] %>
+   </div>
+  <% end %>
+  <% if flash[:deconn] %>
+   <div class="alert alert-success" role="alert">
+     <%= flash[:deconn] %>
+   </div>
+  <% end %>
+  <p class="alert alert-primary"> Clique sur le numéro pour afficher le potin</p>
+  <div class="row" style="margin-top: 15px;">
+    <!-- récuperation des données, ligne par ligne pour l'affichage -->
+    <% Gossip.all.each do |gossip| %>
+      <div class="col-1 bg-light" style="padding-top: 10px;">
+        <!-- affichage d'un bouton clickable -->
+        <%= link_to gossip.id, gossip_path(gossip.id), class:'btn btn-success' %>
+      </div>
+      <div class="col-11 bg-light" style="padding-top: 10px;">
+        <p>Auteur : <strong><%= gossip.user.first_name %></strong></p>
+        <p>Potin : <strong><%= gossip.title %></strong></p>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Ajouter un potin', new_gossip_path, class:'btn btn-primary' %>
+  </div>
+  <br>
+  <br>
+  <div>
+    <%= link_to 'Créer un compte', new_user_path, class:'btn btn-primary' %>
+  </div>
+  <br>
+  <br>
+  <div>
+    <%= link_to 'Se connecter', new_session_path, class:'btn btn-primary' %>
+  </div>
+  <br>
+  <br>
+
+
+
+  <div>
+    <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+  </div>
+</div>

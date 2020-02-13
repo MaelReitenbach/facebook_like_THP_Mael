@@ -1,0 +1,18 @@
+<div class="starter-template">
+  <h1>Page Author !</h1>
+  <div style="margin-top: 15px;">
+    <h2><%= @author.first_name %></h2><br/>
+    <p class="alert alert-primary">Voici la page de l'user n° <%= @author.id %></p>
+    <p>Son nom complet : <strong><%= @author.first_name %> <%= @author.last_name %></strong></p>
+    <p>Son age : <strong><%= @author.age %></strong></p>
+    <p>Son email : <%= @author.email %></p>
+    <p>La ville de l'auteur : <%= link_to @author.city.name, city_path(@author.city.id) %> </p>
+    <p>User depuis le : <strong><%= @author.created_at.to_time.strftime('%d/%m/%Y %H:%M:%S') %></strong>
+  </div>
+  <div>
+    <!-- <a href="./ #@author.id /edit/" class="btn btn-primary">Editer cet author</a> -->
+  </div>
+  <div class="d-flex justify-content-around">
+    <%= link_to "Revenir à l'accueil", index_path, class:'btn btn-secondary', style:'margin-top: 20px;' %>
+  </div>
+</div>

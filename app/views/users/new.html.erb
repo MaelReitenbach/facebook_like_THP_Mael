@@ -1,0 +1,45 @@
+<div class="starter-template">
+
+  <div style="margin-top: 15px;">
+    <h1 class="alert alert-primary">Identifie toi</h1>
+  </div>
+
+  <div class="form-group">
+    <form action='/users/' method='POST'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      
+      <label>Saisi ton prénom :</label>
+      <input type='text' class="form-control" name='new_user_first_name'/><br/>
+
+      <label>Saisi ton nom :</label>
+      <input type='text' class="form-control" name='new_user_last_name'/><br/>
+
+      <label>Saisi ton age :</label>
+      <input type='text' class="form-control" name='new_user_age'/><br/>
+
+      <label>Saisi ton email :</label>
+      <input type='text' class="form-control" name='new_user_email'/><br/>
+
+      <label>Saisi ta ville :</label>
+      <input type='text' class="form-control" name='new_user_city'/><br/>
+
+      <label>Saisi une description :</label>
+      <input type='text' class="form-control" name='new_user_description'/><br/>
+
+       <label>Saisi ton mot de passe :</label>
+      <input type='text' class="form-control" name='new_user_pwd'/><br/>
+      
+      <input type='submit' class="btn btn-primary" value="S'inscrire" style="margin-top: 10px;"/>
+    </form>
+  </div>
+
+  <div class="d-flex justify-content-around">
+    <%= link_to "Revenir à l'accueil", index_path, class:'btn btn-secondary', style:'margin-top: 20px;' %>
+  </div>
+
+  <% if flash[:tromp] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:tromp] %>
+  </div>
+<% end %>
+</div>
